@@ -7,6 +7,10 @@ const CartItem = require('./cartItemModel');
 const User = require('./usersModel');
 const Order = require('./orderModel');
 const OrderItem = require('./orderItemModel');
+const Newsletter = require('./newsletterModel');
+const Contact = require('./contactModel');
+
+
 
 
 // Associations
@@ -25,9 +29,8 @@ OrderItem.belongsTo(Order, { foreignKey: 'order_id' });
 Product.hasMany(OrderItem, { foreignKey: 'product_id' });
 OrderItem.belongsTo(Product, { foreignKey: 'product_id' });
 
-
-// User.hasMany(Order, { foreignKey: 'user_id' }); // Updated to PascalCase
-// Order.belongsTo(User, { foreignKey: 'user_id' }); // Updated to PascalCase
+User.hasMany(Order, { foreignKey: 'user_id' });
+Order.belongsTo(User, { foreignKey: 'user_id' });
 
 
 // Export all models and sequelize instance
@@ -38,5 +41,7 @@ module.exports = {
   CartItem,
   User,
   Order,
-  OrderItem
+  OrderItem,
+  Newsletter,
+  Contact
 };

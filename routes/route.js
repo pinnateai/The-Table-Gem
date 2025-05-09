@@ -7,6 +7,9 @@ const productRoutes = require('./productRoute');
 const cartRoutes = require('./cartItemRoute');
 const orderRoutes = require('./orderRoute');
 const checkoutRoutes = require('./checkoutRoute')
+const newsletterRoutes = require('./newsletterRoutes');
+const contactRoutes = require('./contactRoute');
+
 
 
 // routes
@@ -17,6 +20,8 @@ router.use('/uploads', express.static('public/uploads'));
 router.use('/cart', cartRoutes);
 router.use('/orders', orderRoutes);
 router.use('/checkout', checkoutRoutes);
+router.use('/subscribe', newsletterRoutes);
+router.use('/contact', contactRoutes);
 
 // Root API route
 router.get('/', (req, res) => {
